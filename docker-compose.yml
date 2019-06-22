@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+
+  agile_db:
+    restart: always
+    image: mongo:latest
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    environment:
+      - MONGO_INITDB_DATABASE=${DB_NAME}
+      - MONGO_INITDB_ROOT_USERNAME=${DB_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${DB_PASSWORD}
