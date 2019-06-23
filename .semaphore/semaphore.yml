@@ -31,6 +31,6 @@ blocks:
         - name: npm run build
           commands:
             - checkout
-            - mpn i
+            - npm i
             # - cache restore api-node-modules-$SEMAPHORE_GIT_BRANCH
-            - mpn run build
+            - npm run build
