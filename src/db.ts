@@ -21,11 +21,11 @@ export function connect(): Promise<void> {
   });
 }
 
-export function getDB() {
+export function getDB(): any {
   return client.db(process.env.DB_NAME);
 }
 
-export function getCollection(name: string) {
+export function getCollection(name: string): any {
   const db = getDB();
   return db.collection(name);
 }

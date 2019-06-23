@@ -22,7 +22,7 @@ You need to install [Node](https://nodejs.org/ja/) if you haven't had it.
 npm i
 ```
 
-### Start development
+## Start development
 
 ```
 npm run dev
