@@ -1,0 +1,57 @@
+openapi: 3.0.0
+
+info:
+  title: agile api
+  version: 0.0.1
+
+paths:
+  /comments:
+    post:
+      summary: Post comment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/comment'
+            example:
+              username: marty
+              content: This is comment
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/commentWithId'
+    get:
+      summary: Fetch comments
+      responses:
+        200:
+          description: Success response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/commentWithId'
+
+components:
+
+  schemas:
+
+    comment:
+      type: object
+      properties:
+        username:
+          type: string
+        content:
+          type: string
+
+    commentWithId:
+      allOf:
+        - type: object
+          properties:
+            _id:
+              type: string
+        - $ref: '#/components/schemas/comment'
