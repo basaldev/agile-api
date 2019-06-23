@@ -33,4 +33,4 @@ blocks:
             - checkout
             - mpn i
             # - cache restore api-node-modules-$SEMAPHORE_GIT_BRANCH
-            - npm run build
+            - mpn run build
