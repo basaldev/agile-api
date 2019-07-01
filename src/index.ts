@@ -21,7 +21,7 @@ app.get('/comments', (req, res) => {
 });
 
 app.post('/comments', (req, res) => {
-  db.create('comments', req.body).then(docs => {
+  db.create('comments', req.body).then(() => {
     res.status(201).send({ result: 'created' });
   });
 });
@@ -37,6 +37,7 @@ app.use((err, req, res, next) => {
   const status = (err && err.status) || 500;
   const message = (err && err.message) || 'Internal server error';
   res.status(status).send({ message });
+  next();
 });
 
 logger.info('Connecting to db...');
